@@ -15,6 +15,9 @@
 //
 #include "metric.h"
 
+/** \brief Initialize the metric module
+ *
+ */
 void metric_initialize() {
 
 }

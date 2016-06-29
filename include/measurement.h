@@ -28,11 +28,13 @@ struct meter_plugin;
 // Maximum size of a source name
 #define SOURCE_NAME_MAX 128
 
+// Type definitions for the measurement fields
 typedef char measurement_metric_t[MEASUREMENT_METRIC_SIZE];
 typedef double measurement_value_t;
 typedef char measurement_source_t[SOURCE_NAME_MAX];
 typedef time_t measurement_timestamp_t;
 
+// Structure definition that defines a single measurement
 struct measurement {
     measurement_metric_t metric;
     measurement_value_t value;
@@ -40,15 +42,18 @@ struct measurement {
     measurement_timestamp_t timestamp;
 };
 
+// Define the measurement type
 typedef struct measurement measurement_t;
 
+// Enumeration of the different measurement sink types
 enum measurement_sink_type {
     API,
     RPC,
     STDOUT
 };
 
-
+// Function pointer interface that is required to be implemented
+// by a measurement sink
 typedef void (*measurement_send_func)(measurement_metric_t metric,
                                       measurement_value_t value,
                                       measurement_source_t source,
@@ -58,6 +63,7 @@ typedef void (*measurement_send_func)(measurement_metric_t metric,
 // Private API
 
 // Public API
+
 measurement_send_func measurement_get_sink(enum measurement_sink_type type);
 
 

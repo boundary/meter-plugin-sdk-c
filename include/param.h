@@ -16,37 +16,49 @@
 #ifndef METER_PLUGIN_PARAM_H
 #define METER_PLUGIN_PARAM_H
 
+//
 #include <jansson.h>
 
 // forward declarations
 struct meter_plugin;
 
-#define PARAMETER_MAX_STRING 128
+// #define PARAMETER_MAX_STRING 128
 
+// Default relative location to find the plugin parameter file
 #define PARAMETERS_DEFAULT_PATH "./param.json"
 
+// Define types for our basic data types we handle in meter plugins
 typedef char param_boolean_t;
 typedef long long param_integer_t;
 typedef double param_real_t;
 typedef const char * param_string_t;
 
+// Define a type to hide the implementation of our JSON handling
 typedef json_t parameter_item_t;
+
+// Define a pointer type to our parameter item
 typedef parameter_item_t * parameter_item_ptr_t;
 
+// Define a structure that has a list of parameter items
 struct plugin_parameters {
     size_t size;
     parameter_item_ptr_t *items;
 };
 
+// Define a type for our plugin parameter items
 typedef struct plugin_parameters plugin_parameters_t;
 
+// Private API
+
+// Function to read and load the param.json files
 plugin_parameters_t * parameter_load(const char *path);
 
+// Allocate a parameter structure
 void parameter_initialize(struct meter_plugin *plugin);
 
-//
 // Public API
-//
+
+// Functions for handling our basic parameter data types in param.json
 param_boolean_t parameter_get_boolean(parameter_item_t *item, const char *key);
 param_integer_t parameter_get_integer(parameter_item_t *item, const char *key);
 param_real_t parameter_get_real(parameter_item_t *item, const char *key);

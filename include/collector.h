@@ -20,15 +20,26 @@
 #include "param.h"
 #include "common.h"
 
+// Defines the size of the collector name
 #define COLLECTOR_NAME_SIZE 32
 
+
+// Forward declaration
 struct collector;
 
 /** \brief Function pointer type for initializing a collector
  *
  */
 typedef plugin_result_t (*collector_init_cb)(struct collector *collector);
+
+/** \brief Function pointer type for starting a collector
+ *
+ */
 typedef plugin_result_t (*collector_start_cb)(struct collector *collector);
+
+/** \brief Function pointer type for collecting measurements by a collector
+ *
+ */
 typedef plugin_result_t (*collector_collect_cb)(struct collector *collector);
 
 /** \brief Structure that implements a meter plugin collector
@@ -47,28 +58,38 @@ struct collector {
     collector_collect_cb collect_cb;
 };
 
+// Define type for collector
 typedef struct collector collector_t;
+// Define type for pointer to a collector
 typedef collector_t * collector_ptr_t;
 
+// Structure to contain a list of collectors
 struct collector_list {
     collector_ptr_t *list;
     size_t size;
 };
 
+// Defined a type that contains a list of collectors
 typedef struct collector_list collector_list_t;
 
 //
 // Private API
 //
 
+// Calls the collectors initialize function
 plugin_result_t collector_initialize(collector_t *collector);
+
+// Calls the collectors start function
 plugin_result_t collector_start(collector_t *collector);
+
+// Calls the collectors collect function
 plugin_result_t collector_collect(collector_t *collector);
 
 //
 // Public API
 //
 
+// Allocates a collector structure instance
 collector_t * collector_create(parameter_item_t *item);
 
 #endif //METER_PLUGIN_COLLECTOR_H

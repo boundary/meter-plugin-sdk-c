@@ -22,10 +22,16 @@
 
 #define PARAM_FIELD_ITEMS "items"
 
+/** \brief Initialize the parameter module
+ *
+ */
 void parameter_initialize(struct meter_plugin *plugin) {
 
 }
 
+/** \brief Output the string value of a json_type
+ *
+ */
 static void print_json_type(FILE *file, int json_type) {
 
     switch(json_type) {
@@ -59,11 +65,18 @@ static void print_json_type(FILE *file, int json_type) {
 
 }
 
+/** \brief Output error from JSON parsing library
+ *
+ */
 void print_json_error(FILE *file, json_error_t error) {
     fprintf(file, "text: %s, source: %s, line: %d, column: %d, position: %d\n",
             error.text, error.source, error.line, error.column, error.position);
 }
 
+/** \brief read a param.json and parse contents
+ *
+ *  @param path Path to param.json file
+ */
 plugin_parameters_t * parameter_load(const char *path) {
     plugin_parameters_t *p = malloc(sizeof(plugin_parameters_t));
     json_t *json;
@@ -94,6 +107,11 @@ plugin_parameters_t * parameter_load(const char *path) {
     return p;
 }
 
+/** \brief Extracts a boolean value from a parameter item
+ *
+ *  @param item Pointer to parameter item
+ *  @param key String key to parameter value
+ */
 param_boolean_t parameter_get_boolean(parameter_item_t *item, const char *key) {
     json_t * json = json_object_get(item, key);
     assert(json);
@@ -101,6 +119,11 @@ param_boolean_t parameter_get_boolean(parameter_item_t *item, const char *key) {
     return json_is_true(json);
 }
 
+/** \brief Extracts an integer value from a parameter item
+ *
+ *  @param item Pointer to parameter item
+ *  @param key String key to parameter value
+ */
 param_integer_t parameter_get_integer(parameter_item_t *item, const char *key) {
     json_t * json = json_object_get(item, key);
     assert(json);
@@ -108,6 +131,11 @@ param_integer_t parameter_get_integer(parameter_item_t *item, const char *key) {
     return json_integer_value(json);
 }
 
+/** \brief Extracts a real value from a parameter item
+ *
+ *  @param item Pointer to parameter item
+ *  @param key String key to parameter value
+ */
 param_real_t parameter_get_real(parameter_item_t *item, const char *key) {
     json_t * json = json_object_get(item, key);
     assert(json);
@@ -115,6 +143,11 @@ param_real_t parameter_get_real(parameter_item_t *item, const char *key) {
     return json_real_value(json);
 }
 
+/** \brief Extracts a string value from a parameter item
+ *
+ *  @param item Pointer to parameter item
+ *  @param key String key to parameter value
+ */
 param_string_t parameter_get_string(parameter_item_t *item, const char *key) {
     json_t * json = json_object_get(item, key);
     assert(json);

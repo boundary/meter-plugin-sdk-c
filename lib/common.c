@@ -5,8 +5,12 @@
 #include <stdlib.h>
 #include "common.h"
 
-/**
- * Initialize a collector object
+/** \brief Generates a random number in the specified range
+ *
+ *  @param min Minimum value of random number
+ *  @param max Maximum value of random number
+ *  @return random value between min and max parameters
+ *
  */
 double rand_range(int min, int max) {
     double rnum =rand()/(double)RAND_MAX;

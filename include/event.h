@@ -29,6 +29,7 @@
 
 #define EVENT_STRING_M
 
+// Define the different event types
 enum event_type {
     INFO,
     WARN,
@@ -36,8 +37,10 @@ enum event_type {
     CRITICAL
 };
 
+// Define type for event types
 typedef enum event_type event_type_t;
 
+// Define a structure to hold our event data
 struct event {
     char message[EVENT_MESSAGE_SIZE+1];
     event_type_t type;
@@ -49,8 +52,10 @@ struct event {
     char app_data[EVENT_APP_DATA_SIZE];
 };
 
+// Define type for our event
 typedef struct event EVENT;
 
+// Simple implementation to send an event need by a plugin
 void event_send(const char *message, event_type_t type, const char *tags);
 
 

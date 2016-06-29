@@ -24,10 +24,16 @@ static const char * event_type_strings[] = {
     "critical"
 };
 
+/** \brief Translates the enumeration to string value
+ *
+ */
 static const char * event_type_to_string(event_type_t type) {
     return event_type_strings[type];
 }
 
+/** \brief Sends an event from the plugin
+ *
+ */
 void event_send(const char *message, event_type_t type, const char *tags) {
     printf("bevent:%s|t:%s|tags:%s\n", message, event_type_to_string(type), tags);
 }

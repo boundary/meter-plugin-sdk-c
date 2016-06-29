@@ -14,23 +14,17 @@
 #  limitations under the License.
 
 AC_PREREQ([2.64])
-AC_INIT([meter-plugin], [0.0.1])
-# Init automake, and specify this program use relaxed structures.
-# i.e. this program doesn't follow the gnu coding standards, and doesn't have
-# ChangeLog, COPYING, AUTHORS, INSTALL, README etc. files.
-# AM_INIT_AUTOMAKE([-Wall -Werror foreign])
+AC_INIT([meter-plugin], [0.0.2])
 AM_INIT_AUTOMAKE([ -Wall -Werror subdir-objects])
 AM_PROG_AR
 LT_PREREQ([2.2])
 LT_INIT([dlopen])
-
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC_C99
 AC_CHECK_LIB(m, floor)
 AC_CHECK_LIB(jansson, json_load_file)
 AC_CHECK_HEADERS([stdlib.h])
-
 AC_PROG_INSTALL
 AC_CONFIG_FILES([Makefile
 		 lib/Makefile

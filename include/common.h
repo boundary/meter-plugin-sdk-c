@@ -16,15 +16,19 @@
 #ifndef METER_PLUGIN_COMMON_H
 #define METER_PLUGIN_COMMON_H
 
+// Define result codes
 enum plugin_result {
     PLUGIN_SUCCEED,
     PLUGIN_FAIL
 };
 
+// Define a type of the result codes
 typedef enum plugin_result plugin_result_t;
 
+// Utility function for generating random numbers
 double rand_range(int min, int max);
 
+// Macro to log a string, line of code, and function name
 #define PLUGIN_FUNCTION_NAME(NAME) fprintf(stderr, "%s: line: %d, %s\n",(NAME), __LINE__, __PRETTY_FUNCTION__);
 
 #endif //METER_PLUGIN_COMMON_H

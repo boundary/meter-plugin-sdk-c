@@ -33,6 +33,7 @@ plugin_result_t collector_initialize(collector_t *collector) {
 
 /** \brief Calls our collectors start method
  *
+ *  @param collector Instance of a collector to call its start method up
  */
 plugin_result_t collector_start(collector_t *collector) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -48,12 +49,13 @@ plugin_result_t collector_start(collector_t *collector) {
 
 /** \brief Calls our collectors collect method
  * \typedef collector_t
+ *
+ *  @param collector Instance of a collector to call its collect method
  */
 plugin_result_t collector_collect(collector_t *collector) {
     plugin_result_t result = PLUGIN_SUCCEED;
 
     assert(collector);
-    fprintf(stderr, "collect_cb %p\n", collector->collect_cb);
 
     if (collector->collect_cb && collector->collect_cb(collector) == PLUGIN_FAIL) {
         fprintf(stderr, "Collector collect function failed!\n");
@@ -65,6 +67,8 @@ plugin_result_t collector_collect(collector_t *collector) {
 
 /**
  * \brief Create a collector object
+ *
+ *  @param collector Instance of a collector to call its collect method
  */
 collector_t *collector_create(parameter_item_t *item) {
     collector_t *collector = malloc(sizeof(collector_t));

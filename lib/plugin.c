@@ -38,6 +38,7 @@ meter_plugin_t *plugin_create() {
 
 /** \brief Calls the plugin provided plugin init method if registered
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_INITIALIZE(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -54,6 +55,7 @@ plugin_result_t plugin_INITIALIZE(meter_plugin_t *plugin) {
 
 /** \brief Calls the plugin provided plugin start method if registered
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_START(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -70,6 +72,7 @@ plugin_result_t plugin_START(meter_plugin_t *plugin) {
 
 /** \brief Create collectors for each of the parameter items
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 int plugin_COLLECTORS_CREATE(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -97,6 +100,7 @@ int plugin_COLLECTORS_CREATE(meter_plugin_t *plugin) {
 
 /** \brief Calls the collector initialization method on each of the collectors
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_COLLECTORS_INITIALIZE(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -118,6 +122,7 @@ plugin_result_t plugin_COLLECTORS_INITIALIZE(meter_plugin_t *plugin) {
 
 /** \brief Calls the collector initialization method on each of the collectors
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_COLLECTORS_START(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -137,6 +142,7 @@ plugin_result_t plugin_COLLECTORS_START(meter_plugin_t *plugin) {
 
 /** \brief Read and parse the plugin parameters
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_PARAMETERS_LOAD(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -157,6 +163,7 @@ plugin_result_t plugin_PARAMETERS_LOAD(meter_plugin_t *plugin) {
 
 /** \brief Calls the plugin provided plugin start method if registered
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_PARAMETERS_LOADED(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -173,6 +180,7 @@ plugin_result_t plugin_PARAMETERS_LOADED(meter_plugin_t *plugin) {
 
 /** \break Run the plugin collection
  *
+ *  @param plugin Pointer to meter_plugin structure
  */
 plugin_result_t plugin_RUN(meter_plugin_t *plugin) {
     plugin_result_t result = PLUGIN_SUCCEED;
@@ -194,6 +202,7 @@ plugin_result_t plugin_RUN(meter_plugin_t *plugin) {
     return result;
 }
 
+// Define the states of the plugin at run time
 enum plugin_states {
     PLUGIN_INITIALIZE,
     PLUGIN_PARAMETERS_LOAD,
@@ -207,11 +216,13 @@ enum plugin_states {
     PLUGIN_ERROR
 };
 
+// Define a type for our plugin states
 typedef enum plugin_states plugin_state_t;
 
+// Utility macro to drive our state machine
 #define NEXT_PLUGIN_STATE(FUNCTION, SUCCESS, FAILURE) (FUNCTION) == PLUGIN_SUCCEED ? (SUCCESS) : (FAILURE)
 
-/** /brief Main plugin function for processing measurements
+/** /brief Main plugin function for processing measurements. Implemented as a state machine
  *
  */
 plugin_result_t plugin_run(meter_plugin_t *plugin) {

@@ -1,9 +1,0 @@
-{
-  "EXAMPLE_RANDOM": {
-    "description": "A metric with random measurements",
-    "displayName": "Example Random",
-    "displayNameShort": "Ex. Random",
-    "unit": "number",
-    "defaultAggregate": "avg"
-  }
-}
