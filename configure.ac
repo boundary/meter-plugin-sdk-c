@@ -14,7 +14,7 @@
 #  limitations under the License.
 
 AC_PREREQ([2.64])
-AC_INIT([meter-plugin], [0.1.0])
+AC_INIT([meter-plugin], [0.2.0])
 AM_INIT_AUTOMAKE([ -Wall -Werror subdir-objects])
 AM_PROG_AR
 LT_PREREQ([2.2])
