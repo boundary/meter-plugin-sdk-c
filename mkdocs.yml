@@ -5,8 +5,7 @@ theme: readthedocs
 pages:
 - Home: index.md
 - Installation: 'install/index.md'
-- Using: 'using/index.md'
-- Examples:
-    - Hello: 'examples/hello.md' 
-    - Random: 'examples/random.md'
-    - UDP: 'examples/udp.md'
+- Tutorial: 'tutorial/index.md'
+- Development: 'development/index.md'
+- Examples: 'examples/index.md'
+- Deploy Meter to Raspberry Pi: 'tutorial/install_meter.md'

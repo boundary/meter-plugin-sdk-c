@@ -3,7 +3,7 @@
 Provides a framework for building TrueSight Pulse meter plugins using the C
 programming language.
 
-version 0.
+version 0.2.0
 
 ## SDK Features
 
