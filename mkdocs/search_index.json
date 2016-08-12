@@ -1,0 +1,139 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Meter Plugin SDK for C\n\n\nProvides a framework for building TrueSight Pulse meter plugins using the C\nprogramming language.\n\n\nversion 0.2.0\n\n\nSDK Features\n\n\n\n\nUses autoconf so that code should be portable to all \nPOSIX\n environments or\nthose that can be made a POSIX environment (e.g. \nCygwin\n on Windows)\n\n\nDeveloped plugins register call backs for implementation. For example you register a\nfunction to be called on regular basis for collecting measurements to be send to the plugin\nmanager\n\n\nFirst release is single-threaded, making it low overhead, but requires that when implementing\na plugin with multiple collectors that the be efficient in their collection since only a single\ncollectors is invoked at a time.\n\n\n\n\nFuture Enhancements\n\n\n\n\nAbility to enable multi-threaded collection capability. This will require that the target\nplatform implement \nPOSIX threads\n.\n\n\nBuilt in support for data sources that are able extract data from: REST endpoints, running a\ncommand or script, TCP/UDP sockets, syslog, etc.\n\n\nEvent driven collect where by the foreign system runs the collector when data is available\nrather than polling.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#meter-plugin-sdk-for-c", 
+            "text": "Provides a framework for building TrueSight Pulse meter plugins using the C\nprogramming language.  version 0.2.0", 
+            "title": "Meter Plugin SDK for C"
+        }, 
+        {
+            "location": "/#sdk-features", 
+            "text": "Uses autoconf so that code should be portable to all  POSIX  environments or\nthose that can be made a POSIX environment (e.g.  Cygwin  on Windows)  Developed plugins register call backs for implementation. For example you register a\nfunction to be called on regular basis for collecting measurements to be send to the plugin\nmanager  First release is single-threaded, making it low overhead, but requires that when implementing\na plugin with multiple collectors that the be efficient in their collection since only a single\ncollectors is invoked at a time.", 
+            "title": "SDK Features"
+        }, 
+        {
+            "location": "/#future-enhancements", 
+            "text": "Ability to enable multi-threaded collection capability. This will require that the target\nplatform implement  POSIX threads .  Built in support for data sources that are able extract data from: REST endpoints, running a\ncommand or script, TCP/UDP sockets, syslog, etc.  Event driven collect where by the foreign system runs the collector when data is available\nrather than polling.", 
+            "title": "Future Enhancements"
+        }, 
+        {
+            "location": "/install/", 
+            "text": "Installing the SDK\n\n\nPrerequisites\n\n\n\n\nwget\n to download the tar bundle\n\n\ngcc\n to compile meter plugins using the SDK\n\n\ntar\n (GNU tar) to extract the downloaded software bundle\n\n\n\n\nDownloading the SDK\n\n\nNOTE\n: In the instructions that follow at the time of the writing the currently release version of the SDK\nwas 0.2.0. Check the \nrelease page\n\nfor the latest release version.\n\n\n\n\nChange directory to a suitable location to download and build the SDK\n\n\n\n\nDownload a release from GitHub by using \nwget\n to download the compressed tar file:\n\n\n$ wget https://github.com/boundary/meter-plugin-sdk-c/releases/download/v0.2.0/meter-plugin-0.2.0.tar.gz\n\n\n\n\n\n\nExtracting the SDK\n\n\nWe use the GNU tar to extract the compressed tar file so that we can build\nand installed the SDK\n\n\n\n\n\n\nExtract the software by running the following:\n\n\n$ tar xvf meter-plugin-0.2.0.tar.gz\n\n\n\n\n\n\nInstall Dependent Libraries\n\n\nThe SDK depends on a third-party library for handling the parsing of\n\nJSON\n configuration files: \nplugin.json\n and \nparam.json\n.\n\n\nCentos/RHEL\n\n\n$ sudo yum install -y jansson-devel\n\n\n\n\nDebian/Ubuntu\n\n\n$ sudo apt-get install -y libjansson-dev\n\n\n\n\nMac OS X\n\n\n$ brew install jansson \n\n\n\n\nBuild and Install the SDK\n\n\nThe meter SDK in C uses the autoconf tools and as such should be able to build on any\n\nPOSIX\n environment even Windows using\n\nCygwin\n if the prerequisite third-party libraries\nare available.\n\n\n\n\n\n\nChange directory to location where the SDK distribution was previously.\n\n\n$ cd meter-plugin-0.2.0\n\n\n\n\n\n\nConfigure the SDK for the target distribution by running the following:\n\n\n$ ./configure --prefix=/usr\n\n\n\n\n\n\nCompile meter plugin SDK shared library:\n\n\n$ make\n\n\n\n\n\n\nInstall the meter plugin SDK shared library and include files:\n\n\n$ sudo make install", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/install/#installing-the-sdk", 
+            "text": "", 
+            "title": "Installing the SDK"
+        }, 
+        {
+            "location": "/install/#prerequisites", 
+            "text": "wget  to download the tar bundle  gcc  to compile meter plugins using the SDK  tar  (GNU tar) to extract the downloaded software bundle", 
+            "title": "Prerequisites"
+        }, 
+        {
+            "location": "/install/#downloading-the-sdk", 
+            "text": "NOTE : In the instructions that follow at the time of the writing the currently release version of the SDK\nwas 0.2.0. Check the  release page \nfor the latest release version.   Change directory to a suitable location to download and build the SDK   Download a release from GitHub by using  wget  to download the compressed tar file:  $ wget https://github.com/boundary/meter-plugin-sdk-c/releases/download/v0.2.0/meter-plugin-0.2.0.tar.gz", 
+            "title": "Downloading the SDK"
+        }, 
+        {
+            "location": "/install/#extracting-the-sdk", 
+            "text": "We use the GNU tar to extract the compressed tar file so that we can build\nand installed the SDK    Extract the software by running the following:  $ tar xvf meter-plugin-0.2.0.tar.gz", 
+            "title": "Extracting the SDK"
+        }, 
+        {
+            "location": "/install/#install-dependent-libraries", 
+            "text": "The SDK depends on a third-party library for handling the parsing of JSON  configuration files:  plugin.json  and  param.json .  Centos/RHEL  $ sudo yum install -y jansson-devel  Debian/Ubuntu  $ sudo apt-get install -y libjansson-dev  Mac OS X  $ brew install jansson", 
+            "title": "Install Dependent Libraries"
+        }, 
+        {
+            "location": "/install/#build-and-install-the-sdk", 
+            "text": "The meter SDK in C uses the autoconf tools and as such should be able to build on any POSIX  environment even Windows using Cygwin  if the prerequisite third-party libraries\nare available.    Change directory to location where the SDK distribution was previously.  $ cd meter-plugin-0.2.0    Configure the SDK for the target distribution by running the following:  $ ./configure --prefix=/usr    Compile meter plugin SDK shared library:  $ make    Install the meter plugin SDK shared library and include files:  $ sudo make install", 
+            "title": "Build and Install the SDK"
+        }, 
+        {
+            "location": "/tutorial/", 
+            "text": "Meter Plugin SDK for C Tutorial\n\n\nThis is a tutorial on how to create a meter plugin using the meter plugin SDK for c.\n\n\nThis meter plugin will query the file system on the Raspberry Pi and output\nthe internal temperature of the hardware in either degrees Fahrenheit or Celsius\n\n\nPrerequisites\n\n\n\n\nMeter Plugin SDK has been install per instructions provided in\n\ninstall\n\n\nTooling is in place as described by \nTooling\n\n\nA \nRaspberry Pi\n\n\nTrueSight Pulse Meter Installed on Raspberry Pi\n(see \nDeploy meter on a Raspberry Pi\n)\n\n\n\n\nOverview\n\n\nHere is the high-level overview of the steps to create a meter plugin using\nthe meter plugin SDK in C.\n\n\n\n\nCreate a public repository in GitHub for storing the contents of the meter\nplugin.\n\n\nDefine the metrics to be used by the plugin in \nmetrics.json\n\n\nCreate the plugin manifest with metadata describing the plugin in \nplugin.json\n\n\nImplement the code of the meter plugin (add callbacks).\n\n\nBuild the binary that represents your plugin\n\n\nAdd the plugin to your account as a private plugin\n\n\nInstall the meter plugin binary on the target system\n\n\nDeploy the plugin to the target system meter\n\n\n\n\nCreate GitHub Repository\n\n\nA public GitHub repository is required to store the contents of the meter plugin.\nIf you need assistance in doing the step see the online tutorial\n\nhere\n\n\nClone the repository to the host where you plan to perform the development\nsteps. In this particular case it will be the Raspberry Pi.\n\n\nMetric Definition\n\n\nFor this meter plugin there will be a single metric definition that will be used\nto display the internal temperature of the Raspberry Pi.\n\n\nCreate a file \nmetrics.json\n in the clone repository using favorite editor with the following contents:\n\n\n{\n  \nRASPBERRY_PI_TEMPERATURE\n: {\n    \ndisplayName\n: \nTemperature\n,\n    \ndisplayNameShort\n: \nTemperature\n,\n    \ndescription\n: \nInternal temperature of a Raspberry Pi\n,\n    \nunit\n: \nnumber\n,\n    \ndefaultAggregate\n: \navg\n,\n    \ndefaultResolutionMS\n: 1000\n  }\n}\n\n\n\n\nAdd a commit and commit this file to the repository.\n\n\nComplete details on the format and fields, see\n\nMetrics Reference\n\n\nPlugin Manifest\n\n\nThe plugin manifest contains meta data about the plugin including how to configure\nand run the plugin. In the plugin we developing in this tutorial there are\nthree input values to the plugin:\n\n\n\n\nA select that indicates that we want to output either: celsius or fahrenheit\n\n\nHow often to measure the Raspberry Pi temperature\n\n\nName of the source to be use in the graph display, which defaults to the hostname if\nnot specified.\n\n\n\n\nFor complete details on the format and fields of the plugin manifest \nplugins.json\n,\nsee \nPlugin Manifest Reference", 
+            "title": "Tutorial"
+        }, 
+        {
+            "location": "/tutorial/#meter-plugin-sdk-for-c-tutorial", 
+            "text": "This is a tutorial on how to create a meter plugin using the meter plugin SDK for c.  This meter plugin will query the file system on the Raspberry Pi and output\nthe internal temperature of the hardware in either degrees Fahrenheit or Celsius", 
+            "title": "Meter Plugin SDK for C Tutorial"
+        }, 
+        {
+            "location": "/tutorial/#prerequisites", 
+            "text": "Meter Plugin SDK has been install per instructions provided in install  Tooling is in place as described by  Tooling  A  Raspberry Pi  TrueSight Pulse Meter Installed on Raspberry Pi\n(see  Deploy meter on a Raspberry Pi )", 
+            "title": "Prerequisites"
+        }, 
+        {
+            "location": "/tutorial/#overview", 
+            "text": "Here is the high-level overview of the steps to create a meter plugin using\nthe meter plugin SDK in C.   Create a public repository in GitHub for storing the contents of the meter\nplugin.  Define the metrics to be used by the plugin in  metrics.json  Create the plugin manifest with metadata describing the plugin in  plugin.json  Implement the code of the meter plugin (add callbacks).  Build the binary that represents your plugin  Add the plugin to your account as a private plugin  Install the meter plugin binary on the target system  Deploy the plugin to the target system meter", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/tutorial/#create-github-repository", 
+            "text": "A public GitHub repository is required to store the contents of the meter plugin.\nIf you need assistance in doing the step see the online tutorial here  Clone the repository to the host where you plan to perform the development\nsteps. In this particular case it will be the Raspberry Pi.", 
+            "title": "Create GitHub Repository"
+        }, 
+        {
+            "location": "/tutorial/#metric-definition", 
+            "text": "For this meter plugin there will be a single metric definition that will be used\nto display the internal temperature of the Raspberry Pi.  Create a file  metrics.json  in the clone repository using favorite editor with the following contents:  {\n   RASPBERRY_PI_TEMPERATURE : {\n     displayName :  Temperature ,\n     displayNameShort :  Temperature ,\n     description :  Internal temperature of a Raspberry Pi ,\n     unit :  number ,\n     defaultAggregate :  avg ,\n     defaultResolutionMS : 1000\n  }\n}  Add a commit and commit this file to the repository.  Complete details on the format and fields, see Metrics Reference", 
+            "title": "Metric Definition"
+        }, 
+        {
+            "location": "/tutorial/#plugin-manifest", 
+            "text": "The plugin manifest contains meta data about the plugin including how to configure\nand run the plugin. In the plugin we developing in this tutorial there are\nthree input values to the plugin:   A select that indicates that we want to output either: celsius or fahrenheit  How often to measure the Raspberry Pi temperature  Name of the source to be use in the graph display, which defaults to the hostname if\nnot specified.   For complete details on the format and fields of the plugin manifest  plugins.json ,\nsee  Plugin Manifest Reference", 
+            "title": "Plugin Manifest"
+        }, 
+        {
+            "location": "/development/", 
+            "text": "Development\n\n\nIf desire to contribute to the development of the SDK this page will provide\nsome details to get started with respect:\n\n\n\n\nCode Design\n\n\nCode Layout\n\n\nTooling\n\n\n\n\nEach of the above topics will be covered in kind in sections below.\n\n\nCode Design\n\n\nThe code is composed of several key abstractions with defined responsibilities\nto implement the meter plugin framework.\n\n\nThey are as follows:\n\n\n\n\nPlugin\n\n\nCollector\n\n\nParameter\n\n\nMeasurement\n\n\nEvent\n\n\n\n\nPlugin\n\n\nPlugin is the overall coordinator of the program.\n\n\nIt is responsible for initiating all the key\nfeatures that each plugin is responsible for:\n\n\n\n\nReading of plugin parameters\n\n\nCreating and starting of each of the \nCollectors\n(discussed later)\n\n\nCalling callbacks associated with the users plugin\n\n\n\n\nCollector\n\n\nResponsible for collecting measurement data and sending\nto a \nMeasurement\n sink\n\n\nParameter\n\n\nThe plugin delegates the loading and reading to the\n\nParameters\n\n\nMeasurement\n\n\nMeasurement\n encapsulates the 4 values required to generate\na measurement:\n\n\n\n\nMetric Id\n\n\nValue\n\n\nSource\n\n\nTimestamp\n\n\n\n\nSends to a \nMeasurement Sink\n which can send a measurement\nto standard out to the plugin manager, meter rpc(future), or api(future)\n\n\nEvent\n\n\nEvent\n encapsulates the values required required to send\nevent either to the plugin manager, meter rpc, or API.\n\n\nTo contribute to the SDK's development you can use the vagrant environment provided \nhere\n.\n\n\nCode Layout\n\n\nCode layout is simple and naming mirrors the key abstractions:\n\n\n\u251c\u2500\u2500 AUTHORS\n\u251c\u2500\u2500 COPYING\n\u251c\u2500\u2500 ChangeLog\n\u251c\u2500\u2500 Doxyfile\n\u251c\u2500\u2500 INSTALL\n\u251c\u2500\u2500 LICENSE\n\u251c\u2500\u2500 Makefile.am\n\u251c\u2500\u2500 NEWS\n\u251c\u2500\u2500 README\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 autogen.sh\n\u251c\u2500\u2500 configure.ac\n\u251c\u2500\u2500 docs\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 development\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 index.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 examples\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 hello.md\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 random.md\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 raspberry_pi.md\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 udp.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 getting_started.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 index.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 install\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 index.md\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 tutorial\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 index.md\n\u2502\u00a0\u00a0     \u2514\u2500\u2500 install_meter.md\n\u251c\u2500\u2500 include\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 Makefile.am\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 collector.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 common.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 event.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 log.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 measurement.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 metric.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 param.h\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 plugin.h\n\u251c\u2500\u2500 lib\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 Makefile.am\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 collector.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 common.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 event.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 log.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 measurement.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 metric.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 param.c\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 plugin.c\n\u2514\u2500\u2500 mkdocs.yml\n\n\n\n\nTooling\n\n\nDevelopment work requires the installation of the \nautoconf\n and \nlibtools\n.\n\n\nThese additional tools can help in with development:\n\n\n\n\njsonlint\n - Validates and beautifies JSON documents\n\n\ngrip\n - Accurate preview of markdown files for documentation or READMEs\n\n\nmkdocs\n - Documentation framework that uses markdown develop themed documentation", 
+            "title": "Development"
+        }, 
+        {
+            "location": "/development/#development", 
+            "text": "If desire to contribute to the development of the SDK this page will provide\nsome details to get started with respect:   Code Design  Code Layout  Tooling   Each of the above topics will be covered in kind in sections below.", 
+            "title": "Development"
+        }, 
+        {
+            "location": "/development/#code-design", 
+            "text": "The code is composed of several key abstractions with defined responsibilities\nto implement the meter plugin framework.  They are as follows:   Plugin  Collector  Parameter  Measurement  Event   Plugin  Plugin is the overall coordinator of the program.  It is responsible for initiating all the key\nfeatures that each plugin is responsible for:   Reading of plugin parameters  Creating and starting of each of the  Collectors (discussed later)  Calling callbacks associated with the users plugin   Collector  Responsible for collecting measurement data and sending\nto a  Measurement  sink  Parameter  The plugin delegates the loading and reading to the Parameters  Measurement  Measurement  encapsulates the 4 values required to generate\na measurement:   Metric Id  Value  Source  Timestamp   Sends to a  Measurement Sink  which can send a measurement\nto standard out to the plugin manager, meter rpc(future), or api(future)  Event  Event  encapsulates the values required required to send\nevent either to the plugin manager, meter rpc, or API.  To contribute to the SDK's development you can use the vagrant environment provided  here .", 
+            "title": "Code Design"
+        }, 
+        {
+            "location": "/development/#code-layout", 
+            "text": "Code layout is simple and naming mirrors the key abstractions:  \u251c\u2500\u2500 AUTHORS\n\u251c\u2500\u2500 COPYING\n\u251c\u2500\u2500 ChangeLog\n\u251c\u2500\u2500 Doxyfile\n\u251c\u2500\u2500 INSTALL\n\u251c\u2500\u2500 LICENSE\n\u251c\u2500\u2500 Makefile.am\n\u251c\u2500\u2500 NEWS\n\u251c\u2500\u2500 README\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 autogen.sh\n\u251c\u2500\u2500 configure.ac\n\u251c\u2500\u2500 docs\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 development\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 index.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 examples\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 hello.md\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 random.md\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u251c\u2500\u2500 raspberry_pi.md\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 udp.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 getting_started.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 index.md\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 install\n\u2502\u00a0\u00a0 \u2502\u00a0\u00a0 \u2514\u2500\u2500 index.md\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 tutorial\n\u2502\u00a0\u00a0     \u251c\u2500\u2500 index.md\n\u2502\u00a0\u00a0     \u2514\u2500\u2500 install_meter.md\n\u251c\u2500\u2500 include\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 Makefile.am\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 collector.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 common.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 event.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 log.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 measurement.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 metric.h\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 param.h\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 plugin.h\n\u251c\u2500\u2500 lib\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 Makefile.am\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 collector.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 common.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 event.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 log.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 measurement.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 metric.c\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 param.c\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 plugin.c\n\u2514\u2500\u2500 mkdocs.yml", 
+            "title": "Code Layout"
+        }, 
+        {
+            "location": "/development/#tooling", 
+            "text": "Development work requires the installation of the  autoconf  and  libtools .  These additional tools can help in with development:   jsonlint  - Validates and beautifies JSON documents  grip  - Accurate preview of markdown files for documentation or READMEs  mkdocs  - Documentation framework that uses markdown develop themed documentation", 
+            "title": "Tooling"
+        }, 
+        {
+            "location": "/examples/", 
+            "text": "Example Plugins Using Meter Plugin SDK for C\n\n\n\n\nRandom\n\n\nRaspberry PI Temperature\n\n\nUDP", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/examples/#example-plugins-using-meter-plugin-sdk-for-c", 
+            "text": "Random  Raspberry PI Temperature  UDP", 
+            "title": "Example Plugins Using Meter Plugin SDK for C"
+        }, 
+        {
+            "location": "/tutorial/install_meter/", 
+            "text": "Installing a meter on a Raspberry Pi\n\n\nAt the time of this writing there existed a meter package that is capable\nof running on the Raspbian in a Raspberry Pi. The standard setup_meter.sh\ncalls upon a back end repository that is currently not equiped to deploy\nthe meter using the this script.\n\n\nThe current working around is run the following commands on the Raspberry Pi:\n\n\n\n\n\n\nSet the environment variable \nINSTALLTOKEN\n and export your accounts API key:\n\n\nexport INSTALLTOKEN=051c18f6-b143-4b4f-8010-746f6a67fde7 # Replace with your accounts API token\n\n\n\n\n\n\nRun the following command to install the meter:\n\n\n$ curl -fsS 'https://gist.githubusercontent.com/jdgwartney/07cb3eab201755245f2905b6bc45ecd2/raw/a5733275cc9259a0453030863bb21cff1850c790/pi-install.sh | bash", 
+            "title": "Deploy Meter to Raspberry Pi"
+        }, 
+        {
+            "location": "/tutorial/install_meter/#installing-a-meter-on-a-raspberry-pi", 
+            "text": "At the time of this writing there existed a meter package that is capable\nof running on the Raspbian in a Raspberry Pi. The standard setup_meter.sh\ncalls upon a back end repository that is currently not equiped to deploy\nthe meter using the this script.  The current working around is run the following commands on the Raspberry Pi:    Set the environment variable  INSTALLTOKEN  and export your accounts API key:  export INSTALLTOKEN=051c18f6-b143-4b4f-8010-746f6a67fde7 # Replace with your accounts API token    Run the following command to install the meter:  $ curl -fsS 'https://gist.githubusercontent.com/jdgwartney/07cb3eab201755245f2905b6bc45ecd2/raw/a5733275cc9259a0453030863bb21cff1850c790/pi-install.sh | bash", 
+            "title": "Installing a meter on a Raspberry Pi"
+        }
+    ]
+}

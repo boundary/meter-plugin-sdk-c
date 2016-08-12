@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation - Meter Plugin SDK for C</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Installation";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Meter Plugin SDK for C</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Installation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#installing-the-sdk">Installing the SDK</a></li>
+                
+                    <li><a class="toctree-l4" href="#prerequisites">Prerequisites</a></li>
+                
+                    <li><a class="toctree-l4" href="#downloading-the-sdk">Downloading the SDK</a></li>
+                
+                    <li><a class="toctree-l4" href="#extracting-the-sdk">Extracting the SDK</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-dependent-libraries">Install Dependent Libraries</a></li>
+                
+                    <li><a class="toctree-l4" href="#build-and-install-the-sdk">Build and Install the SDK</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tutorial/">Tutorial</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../development/">Development</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tutorial/install_meter/">Deploy Meter to Raspberry Pi</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Meter Plugin SDK for C</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installing-the-sdk">Installing the SDK</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><code>wget</code> to download the tar bundle</li>
+<li><code>gcc</code> to compile meter plugins using the SDK</li>
+<li><code>tar</code> (GNU tar) to extract the downloaded software bundle</li>
+</ul>
+<h2 id="downloading-the-sdk">Downloading the SDK</h2>
+<p><strong>NOTE</strong>: In the instructions that follow at the time of the writing the currently release version of the SDK
+was 0.2.0. Check the <a href="https://github.com/boundary/meter-plugin-sdk-c/releases">release page</a>
+for the latest release version.</p>
+<ol>
+<li>Change directory to a suitable location to download and build the SDK</li>
+<li>
+<p>Download a release from GitHub by using <code>wget</code> to download the compressed tar file:</p>
+<p><code>$ wget https://github.com/boundary/meter-plugin-sdk-c/releases/download/v0.2.0/meter-plugin-0.2.0.tar.gz</code></p>
+</li>
+</ol>
+<h2 id="extracting-the-sdk">Extracting the SDK</h2>
+<p>We use the GNU tar to extract the compressed tar file so that we can build
+and installed the SDK</p>
+<ol>
+<li>
+<p>Extract the software by running the following:</p>
+<p><code>$ tar xvf meter-plugin-0.2.0.tar.gz</code></p>
+</li>
+</ol>
+<h2 id="install-dependent-libraries">Install Dependent Libraries</h2>
+<p>The SDK depends on a third-party library for handling the parsing of
+<a href="https://en.wikipedia.org/wiki/JSON">JSON</a> configuration files: <code>plugin.json</code> and <code>param.json</code>.</p>
+<h3 id="centosrhel">Centos/RHEL</h3>
+<pre><code>$ sudo yum install -y jansson-devel
+</code></pre>
+
+<h3 id="debianubuntu">Debian/Ubuntu</h3>
+<pre><code>$ sudo apt-get install -y libjansson-dev
+</code></pre>
+
+<h3 id="mac-os-x">Mac OS X</h3>
+<pre><code>$ brew install jansson 
+</code></pre>
+
+<h2 id="build-and-install-the-sdk">Build and Install the SDK</h2>
+<p>The meter SDK in C uses the autoconf tools and as such should be able to build on any
+<a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> environment even Windows using
+<a href="https://en.wikipedia.org/wiki/Cygwin">Cygwin</a> if the prerequisite third-party libraries
+are available.</p>
+<ol>
+<li>
+<p>Change directory to location where the SDK distribution was previously.</p>
+<p><code>$ cd meter-plugin-0.2.0</code></p>
+</li>
+<li>
+<p>Configure the SDK for the target distribution by running the following:</p>
+<p><code>$ ./configure --prefix=/usr</code></p>
+</li>
+<li>
+<p>Compile meter plugin SDK shared library:</p>
+<p><code>$ make</code></p>
+</li>
+<li>
+<p>Install the meter plugin SDK shared library and include files:</p>
+<p><code>$ sudo make install</code></p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorial/" class="btn btn-neutral float-right" title="Tutorial"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tutorial/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
